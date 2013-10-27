@@ -1,0 +1,32 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href= 'pianizm'> Pianizm.com </a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <% if current_page?(pianizm_index_path)%>
+              <li class="active"><%= link_to 'Home', pianizm_index_path %></li>
+              <li><%= link_to 'About', pianizm_index_path %></li>
+              <li><%= link_to 'Contact', pianizm_index_path %></li>
+          <% end %>
+          </li>
+        </ul>
+        <% puts 'searchme' %>
+        <% puts session[:current_user_id].nil?.to_s %>
+        <% puts  session[:current_user_id] %>
+
+        <% if session[:current_user_id].nil?%>
+        <%= form_tag pianizm_index_path, :class => 'navbar-form pull-right', :method => :post %>
+        <input id="usernamelog"class="span2" type="text" placeholder="Email" name="username">
+        <input id="passwordlog" class="span2" type="password" placeholder="Password" name="password">
+        <button id="signinlog" type="submit" class="btn">Sign in</button>
+        </form>
+        <% else %>
+            <p class="navbar-text pull-right">
+              Logged in as  <%= link_to User.find(session[:current_user_id]).login, user_index_path %>
+            </p>
+        <% end %>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>

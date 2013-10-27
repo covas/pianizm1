@@ -1,0 +1,24 @@
+<% if @result.size.eql?(0) %>
+  <h2>No hay resultados por <%= @search %></h2>
+<% else %>
+<table class="table table-striped">
+  <tr>
+    <th>Login</th>
+    <th>Nombre</th>
+    <th>Rol</th>
+    <th>Ver Perfil</th>
+  </tr>
+  <% @result.each do |usuario| %>
+  <% if session[:current_user_id].eql?(usuario.id)  %>
+
+  <% else %>
+  <tr>
+    <td><%= usuario.login %></td>
+    <td><%= usuario.name %></td>
+    <td><%= usuario.rol %></td>
+    <td><%= link_to 'Perfil',user_path(usuario.id)  %></td>
+  </tr>
+  <% end %>
+ <% end %>
+</table>
+<% end %>

@@ -1,0 +1,16 @@
+<h2>Estás viendo el perfil de <%= @usr.name %>
+ <% string= "select * from friends where friends.idfriend=" + @usr.id.to_s+ " and user_id=" + @currentUser.id.to_s  %>
+ <% @esAmigo= !@currentUser.friends.find_by_sql(string).first.nil? %>
+ <% if @esAmigo %>
+      <div style="float: left; width: auto;"> <%= button_to 'Unfriend', pianizm_index_path, :class => 'btn btn-danger' , :method => :get  %> </div>
+ <% else %>
+      <div style="float: left; width: auto;"><%= form_tag  user_path(@usr.id), :method=> :get %>
+      <input type="hidden"  value="add" name="booleanAdd"></input>
+      <input type="hidden"  value="<%= @usr.id %>" name="usrId"></input>
+      <button type="submit" class="btn btn-info" style="display: inline"><i class="icon-user"></i>Add Friend</button>
+      </div>
+ <% end %>
+</h2>
+<%= render 'shared/matrix4' %>
+<%= render 'shared/modalFlash' %>
+

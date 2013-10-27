@@ -1,0 +1,22 @@
+<%= render 'user/navbaruser' %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+      <%= render 'user/sidebar' %>
+    </div>
+    <div class="span10">
+      <!--Body content-->
+      <span class="helper-block">Por favor ingresa tu cosulta</span>
+      <%= form_tag search_user_index_path, :class => 'form-search', :id=>'searchform', :method => :get %>
+      <input type="text" class="input-medium search-query" name="search" id="searchinput" required="true">
+      <button type="submit" class="btn" id="searchbtn"><i class="icon-search"></i>Search</button>
+      <% if @search.nil? == true %>
+         <h2>Acá aparecerán los resultados de tu búsqueda de amigos</h2>
+      <% else %>
+      <%= render 'user/results' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer' %>

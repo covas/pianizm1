@@ -1,0 +1,26 @@
+<% if @friends.size.eql?(0) %>
+
+    <h3>Aún no tienes amigos. Te invitamos a buscar amigos <%= link_to 'acá' , search_user_index_path%></h3>
+<% else %>
+    <table class="table table-striped">
+      <tr>
+        <th>Login</th>
+        <th>Nombre</th>
+        <th>Rol</th>
+        <th>Ver Perfil</th>
+      </tr>
+      <% @friends.each do |friend| %>
+          <% usuario= User.find(friend.idfriend)  %>
+          <% if session[:current_user_id].eql?(usuario.id)  %>
+
+          <% else %>
+              <tr>
+                <td><%= usuario.login %></td>
+                <td><%= usuario.name %></td>
+                <td><%= usuario.rol %></td>
+                <td><%= link_to 'Perfil',user_path(usuario.id)  %></td>
+              </tr>
+          <% end %>
+      <% end %>
+    </table>
+<% end %>

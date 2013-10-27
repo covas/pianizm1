@@ -1,0 +1,18 @@
+
+      <div class="span12">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Amigos</li>
+            <li><%= link_to 'Buscar Amigos ', search_user_index_path %></li>
+            <li><%= link_to 'Ver Amigos ', friends_user_index_path %></li>
+            <li class="nav-header">Mis Canciones</li>
+            <li><%= link_to 'Buscar Canciones', song_index_path %></li>
+            <li><%= link_to 'Mis canciones', pianizm_index_path %></li>
+            <% if User.find(session[:current_user_id]).rol.eql?('Tutor') or  User.find(session[:current_user_id]).rol.eql?('Ambos') %>
+            <li class="nav-header">Zona Tutor</li>
+            <li><%= link_to 'Subir Cancion', upload_user_index_path %></li>
+            <li><%= link_to 'Mis estudiantes', pianizm_index_path %></li>
+            <% end %>
+          </ul>
+        </div><!--/.well -->
+      </div><!--/span-->

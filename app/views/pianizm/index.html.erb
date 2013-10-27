@@ -1,0 +1,34 @@
+<%= render 'pianizm/navbar'%>
+<div class="container-fluid">
+  <div class="row-fluid">
+      <div class="span8">
+        <div class="hero-unit">
+          <h1>  <%= image_tag 'logo.png', :size => '150x20', :class => 'brand'%> Te da la bienvenida</h1>
+          <p class="lead"> Pianizm es una comunidad web que surge de la necesidad de aprender y enseñar a tocar piano.
+            En esta comunidad puedes participar como tutor y/o aprendiz, por lo que puedes grabar o tocar canciones. Te
+            invitamos a registrarte para probar una nueva experiencia de aprendizaje musical.
+          </p>  <p><a href="#" class="btn btn-primary btn-large">Conoce más &raquo;</a></p>
+        </div>
+      </div>
+      <div class="span4">
+        <h2>Registrate ahora</h2>
+        <%= form_tag  user_index_path, method: 'post' %>
+        <span class="help-block">Por favor ingresa tu nombre, login y clave.</span>
+        <input type="text" placeholder="Nombre" name="name">
+        <input type="text" placeholder="Email" name="username">
+        <input type="password" placeholder="Password" name="password"> <br>
+        <span class="help-block">Por favor selecciona un rol.</span>
+        <select name="rol">
+          <option>Aprendiz</option>
+          <option>Tutor</option>
+          <option>Ambos</option>
+        </select><br>
+        <button type="submit" class="btn">Registrar</button>
+        </form>
+      </div>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>
+<%= render 'shared/modalFlash' %>
+

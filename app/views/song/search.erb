@@ -1,0 +1,17 @@
+<%= render 'song/navbarsong' %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+      <%= render 'song/sidebar' %>
+    </div>
+    <div class="span10">
+      <h2>Estas son las canciones encontradas al buscar <%= @search %></h2>
+      <%= render 'song/matrix4song' %>
+    </div>
+  </div>
+</div>
+
+</form>
+
+<%= render 'shared/footer' %>

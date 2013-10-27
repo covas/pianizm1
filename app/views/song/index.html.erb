@@ -1,0 +1,17 @@
+<%= render 'song/navbarsong' %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+      <%= render 'song/sidebar' %>
+    </div>
+    <div class="span10">
+      <!--Body content-->
+      <span class="helper-block">Por favor ingresa tu cosulta</span>
+      <%= form_tag search_song_index_path, :class => 'form-search',:id=>'searchform', :method => :get %>
+      <input type="text" class="input-medium search-query" name="search" required="">
+      <button type="submit" class="btn"><i class="icon-search"></i>Search</button>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer' %>

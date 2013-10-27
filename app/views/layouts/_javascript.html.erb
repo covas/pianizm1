@@ -1,0 +1,9 @@
+<!-- JavaScript -->
+<%= javascript_include_tag 'bootstrap.min.js' %>
+
+
+<script type="text/javascript">
+     <% if flash[:notice] %>
+        $('#modal').modal('show');
+    <% end %>
+</script>
